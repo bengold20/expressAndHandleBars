@@ -14,8 +14,11 @@ var storage = multer.diskStorage({
         cb(null, './public/data/uploads/')
     },
     filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-        cb(null, file.fieldname + '-' + uniqueSuffix)
+
+        // const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9) + '.jpg'
+        // cb(null, file.fieldname + '-' + uniqueSuffix)
+
+
     }
 });
 
@@ -39,7 +42,7 @@ app.post('/upload',uploadx, function (req, res) {
     //     } else {
     //         return res.send('Loi ko xac dinh');
     //     }
-        res.send('OK nhe')
+        res.send('Successfully!!')
     // });
 });
 
