@@ -33,16 +33,16 @@ var uploadx = multer({
 app.post('/upload',uploadx, function (req, res) {
     // req.file is the name of your file in the form above, here 'uploaded_file'
     // req.body will hold the text fields, if there were any
-    // console.log(req.file, req.body);
+    console.log(req.file, req.body);
 
-    (req, res, function (error) {
-        if (error instanceof multer.MulterError) {
-            return res.send("File size Maximum is 1MB.Please try again!!!")
-        } else {
-            return res.send('Loi ko xac dinh');
-        }
+    // (req, res, function (error) {
+    //     if (error instanceof multer.MulterError) {
+    //         return res.send("File size Maximum is 1MB.Please try again!!!")
+    //     } else {
+    //         return res.send('Loi ko xac dinh');
+    //     }
         res.send('Successfully!!')
-    });
+    // });
 });
 
 app.engine('handlebars', Handlebars());
