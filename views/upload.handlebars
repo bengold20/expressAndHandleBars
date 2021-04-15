@@ -1,7 +1,63 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
 
-<form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="avatar"/>
-    <button type="submit">Upload</button>
-</form>
+<h1>{{title}}</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone </th>
+        <th scope="col">Detail</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#if isHasData}}
+        {{#each userList}}
+            <tr>
+                <td>
+                    <img WIDTH="35px" src={{this.ImageURL}} >
+                </td>
+                <td>{{this.Name}}</td>
+                <td>{{this.Gender}}</td>
+                <td>{{this.Email}}</td>
+                <td>{{this.Phone}}</td>
+                <td><a class="btn btn-primary" href="/user/{{this._id}}">Detail</a></td>
+                <td>
+                    <a class="btn btn-primary" href="/user/{{this._id}}/delete">Delete</a>
+                </td>
+            </tr>
+        {{/each}}
+    {{/if}}
+    </tbody>
+</table>
+<!--<h1 style="color: #007bff">Add IMAGE</h1>-->
+
+<!--<form action="/upload" method="post" enctype="multipart/form-data">-->
+<!--    <input type="file" name="avatar"/>-->
+<!--    <button type="submit">Upload</button>-->
+<!--</form>-->
+
+<!--<h1 style="color: #007bff">Add Database</h1>-->
+<!--<form method="post" action="/postdata">-->
+<!--    <li>-->
+<!--        <input name="userName" placeholder="Enter username">-->
+<!--    </li>-->
+<!--    <li>-->
+<!--        <input name="password" placeholder="Enter password">-->
+<!--    </li>-->
+<!--    <li>-->
+<!--        <input name="name" placeholder="Enter name">-->
+<!--    </li>-->
+<!--    <li>-->
+<!--        <input name="address" placeholder="Enter addressBen">-->
+<!--    </li>-->
+<!--    <li>-->
+<!--        <input name="numberPhone" placeholder="Enter number phone">-->
+<!--    </li>-->
+
+<!--    <button type="submit" style="background: #57b846;margin-left: 200px;size: 36px;width: 100px;height: 50px;margin-top: 30px"> ADD </button>-->
+
+<!--</form>-->
