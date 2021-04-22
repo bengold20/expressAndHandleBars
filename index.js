@@ -32,7 +32,9 @@ var userConnect = mongoose.model("users", user);
 
 
 //chạy lên localhost với port 3111
-app.listen(process.env.PORT || '3113');
+app.listen(process.env.PORT || '3113', ()=>{
+    console.log("server listening in port 3113" );
+});
 
 var multer = require('multer');
 var storage = multer.diskStorage({
@@ -122,6 +124,13 @@ router.get('/getUsers', async function (req, res) {
     const userList = await userConnect.find({});
     res.json(userList)
 })
+
+app.route('/authenticate').get(function (req, res) {
+
+    const {username , password } = req.query;
+    console.log({username, password})
+})
+
 
 app.route("/signup")
     .get(function (req, res) {
